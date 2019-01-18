@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h> 
+int b[10000000]={0};
+long int swp(char a[100000])
+{
+	long int max=0;
+	int t,i,j;
+	int b[100000]={0};
+	t=strlen(a);
+	j=t;
+	for(i=0;i<t;i++)
+	{
+		if(a[i]=='A')
+		{
+			b[i]=10;
+		}
+		    else if(a[i]=='B')
+		{
+			b[i]=11;
+		}
+			else if(a[i]=='C')
+		{
+			b[i]=12;
+		}
+			else if(a[i]=='D')
+		{
+			b[i]=13;
+		}
+			else if(a[i]=='E')
+		{
+			b[i]=14;
+		}
+			else if(a[i]=='F')
+		{
+			b[i]=15;
+		}
+		else
+		{
+			b[i]=a[i]-48;
+		}
+	}
+	for(i=0;i<t;i++)
+	{
+		max+=b[i]*pow(16,j-1-i);
+	}
+	return max;
+}
+int main()
+{
+	int n,i,j,t;
+	scanf("%d",&n);
+	char a[100000];
+	while(n--)
+	{
+	i=0;
+	scanf("%s",a);
+	t=swp(a);
+	while(t)
+	{
+		b[i++]=t%8;
+		t=t/8;
+	}
+	for(j=i-1;j>=0;j--)
+	printf("%d",b[j]);
+	printf("\n");
+	} 
+} 

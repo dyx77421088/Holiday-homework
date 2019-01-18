@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main() {
+	char a[26]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+	char b[100][100];
+	int x,y,i,j,t,k;
+	scanf("%d %d",&x, &y);
+	for(i=0; i<x; i++)
+	{
+		t=i;
+		k=0;
+		for(j=0;j<y;j++)
+		{
+			if(t>0)
+			{
+				b[i][j]=a[i-j];
+				printf("%c",b[i][j]);
+				t--;
+			}      
+			else            
+			{
+				printf("%c",a[k++]);
+			}
+		}
+		printf("\n");
+	}
+	return 0;
+} 
